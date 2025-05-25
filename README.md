@@ -1,5 +1,14 @@
 # Reflow E2E テスト環境 (Playwright × WCAG Reflow)
 
+<div>
+    <a href="https://www.loom.com/share/993e4b85d6fb4c6ebe3cc2cf32da2bcc">
+      <p>Cursor - index.html — reflow-e2e - 25 May 2025 - Watch Video</p>
+    </a>
+    <a href="https://www.loom.com/share/993e4b85d6fb4c6ebe3cc2cf32da2bcc">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/993e4b85d6fb4c6ebe3cc2cf32da2bcc-8bdc761dd827dcd6-full-play.gif">
+    </a>
+  </div>
+
 ## 動作要件
 - **Node.js v18 以上**  
   - `npm` / `npx` が利用できれば OK
