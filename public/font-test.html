@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>フォント拡大リフローテスト</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+    .page-container {
+      max-width: 1200px; /* デスクトップでの最大幅 */
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 1rem;
+      border: 1px solid #ccc;
+    }
+    header h1 {
+      font-size: 2.5rem; /* ルートフォントサイズに依存 */
+      margin-bottom: 1rem;
+      color: #333;
+    }
+    .layout-grid {
+      display: flex;
+      gap: 1.5rem; /* rem単位のギャップ */
+    }
+    .main-content {
+      flex: 3;
+      min-width: 0; /* flexアイテムの縮小を許可 */
+    }
+    .sidebar {
+      flex: 1;
+      background-color: #e9e9e9;
+      padding: 1rem;
+      min-width: 35rem; /* ルートフォント拡大で大きくなる最小幅 */
+    }
+    .article-text {
+      max-width: 60ch; /* 1行あたりの文字数目安、フォントサイズで幅が変わる */
+      margin-bottom: 1.5rem;
+    }
+    .fixed-width-image {
+      width: 400px; /* 固定幅の画像 */
+      height: auto;
+      display: block;
+      margin: 1rem 0;
+      border: 2px solid blue;
+    }
+    .fixed-width-iframe-container {
+        width: 560px; /* 固定幅のiframeコンテナ */
+        margin: 1rem 0;
+        border: 2px solid green;
+        overflow: hidden; /* はみ出し確認のため */
+    }
+    .fixed-width-iframe-container iframe {
+        width: 100%;
+        height: 315px;
+    }
+
+    .long-text-box {
+        border: 1px solid #ddd;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        word-break: break-all; /* 意図しない改行を防ぐためのダミー */
+    }
+
+    /* ルートフォントサイズが変更されたときに問題を起こしそうなスタイル */
+    .problematic-inline-block {
+        display: inline-block;
+        width: 15rem; /* フォントサイズで幅が変わる */
+        min-width: 250px; /* 固定の最小幅を持つ */
+        background-color: orange;
+        padding: 0.5rem;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid black;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="page-container">
+    <header>
+      <h1>フォント拡大リフローテストページ</h1>
+    </header>
+    <div class="layout-grid">
+      <main class="main-content">
+        <h2>メインコンテンツエリア (flex:3)</h2>
+        <div class="article-text">
+          <p>このセクションのテキストコンテナの幅は <code>max-width: 60ch</code> で指定されています。ルートのフォントサイズが変更されると、このコンテナの実質の幅も変わります。多くのテキストを流し込みます。ああああああああああいいいいいいいいいいうううううううううえええええええええおおおおおおおおおおああああああああああいいいいいいいいいいうううううううううえええええええええおおおおおおおおおお。</p>
+        </div>
+        <img src="https://via.placeholder.com/400x200.png?text=Fixed+Width+Image+(400px)" alt="固定幅の画像" class="fixed-width-image">
+        
+        <p>以下の要素は <code>display: inline-block</code> で、幅が <code>15rem</code>、<code>min-width</code> が <code>250px</code> です。ルートフォントサイズが200%になると幅は2倍になりますが、<code>min-width</code> も考慮されます。</p>
+        <div class="problematic-inline-block">Problematic Box 1 (width: 15rem, min-width: 250px)</div>
+        <div class="problematic-inline-block">Problematic Box 2 (width: 15rem, min-width: 250px)</div>
+        <div class="problematic-inline-block">Problematic Box 3 (width: 15rem, min-width: 250px)</div>
+
+        <div class="long-text-box">
+            長ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーい文字列（word-break: break-all）
+        </div>
+        <div class="fixed-width-iframe-container">
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </main>
+      <aside class="sidebar">
+        <h3>サイドバー (min-width: 20rem)</h3>
+        <p>このサイドバーの最小幅は <code>min-width: 20rem</code> で指定されています。ルートフォントサイズが200%になると、この最小幅も実質2倍になります。</p>
+        <p>サイドバーのコンテンツがここに入ります。ああああああああああいいいいいいいいいいうううううううううえええええええええおおおおおおおおおお。</p>
+      </aside>
+    </div>
+  </div>
+</body>
+</html> 

@@ -1,0 +1,5 @@
+# コメント行や空行は無視されます
+
+https://playwright.dev/ 
+http://127.0.0.1:5500/public/index.html
+http://127.0.0.1:5500/public/font-test.html

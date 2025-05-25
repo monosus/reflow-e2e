@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>リフロー違反サンプル</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .fixed-table {
+      width: 1200px;
+      border: 1px solid #333;
+    }
+    .fixed-box {
+      width: 900px;
+      height: 100px;
+      background: #f99;
+      margin: 16px 0;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      width: 800px;
+      height: 400px;
+      background: #fff;
+      border: 2px solid #333;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+    }
+    .modal.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>リフロー違反サンプルページリフロー違反サンプルページリフロー違反サンプルページリフロー違反サンプルページリフロー違反サンプルページリフロー違反サンプルページリフロー違反サンプルページリフロー違反サンプルページリフロー違反サンプルページリフロー違反サンプルページリフロー違反サンプルページリフロー違反サンプルページリフロー違反サンプルページリフロー違反サンプルページリフロー違反サンプルページリフロー違反サンプルページリフロー違反サンプルページリフロー違反サンプルページ</h1>
+    <div class="fixed-box">横幅900px固定のボックス（小さい画面で水平スクロール発生）</div>
+    <table class="fixed-table">
+      <caption>サンプルテーブル（幅1200px固定）</caption>
+      <tr><th>ヘッダー1</th><th>ヘッダー2</th><th>ヘッダー3</th><th>ヘッダー4</th></tr>
+      <tr><td>データ1</td><td>データ2</td><td>データ3</td><td>データ4</td></tr>
+      <tr><td>データ5</td><td>データ6</td><td>データ7</td><td>データ8</td></tr>
+    </table>
+    <button id="open-modal" aria-haspopup="dialog">モーダルを開く</button>
+  </main>
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <h2 id="modal-title">モーダルタイトル</h2>
+    <p>このモーダルも幅800px固定です。</p>
+    <button id="close-modal">閉じる</button>
+  </div>
+  <script>
+    const openBtn = document.getElementById('open-modal');
+    const closeBtn = document.getElementById('close-modal');
+    const modal = document.getElementById('modal');
+    openBtn.addEventListener('click', () => {
+      modal.classList.add('active');
+      closeBtn.focus();
+    });
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+      openBtn.focus();
+    });
+  </script>
+</body>
+</html> 
