@@ -1,5 +1,9 @@
 # Reflow E2E テスト環境 (Playwright × WCAG Reflow)
 
+> **このリポジトリは、Webサイトやアプリの「リフロー（再レイアウト）」時のアクセシビリティを自動で検証できるE2Eテスト環境です。**
+> 
+> WCAG 2.2「1.4.10 Reflow」基準に沿い、画面幅や文字サイズの変化・動的UI表示時に「水平スクロールが発生しない」「レイアウト崩れがない」などを自動チェックします。URLリストを用意するだけで、複数ページを一括検証できます。
+
 <div>
     <a href="https://www.loom.com/share/993e4b85d6fb4c6ebe3cc2cf32da2bcc">
       <p>Cursor - index.html — reflow-e2e - 25 May 2025 - Watch Video</p>
